@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       SEO — edit the title and description below if wording changes
+       ============================================================ -->
+  <title>Aeon Holdings</title>
+  <meta name="description" content="Aeon Holdings acquires and personally operates one established, profitable small business for the long term. A patient, owner-operated home for a company and the people who built it." />
+  <link rel="canonical" href="https://aeonholdings.co/" />
+  <meta name="theme-color" content="#16283a" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aeon Holdings" />
+  <meta property="og:title" content="Aeon Holdings" />
+  <meta property="og:description" content="Acquiring and operating one exceptional business for the long term." />
+  <meta property="og:url" content="https://aeonholdings.co/" />
+  <meta property="og:image" content="https://aeonholdings.co/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aeon Holdings" />
+  <meta name="twitter:description" content="Acquiring and operating one exceptional business for the long term." />
+  <meta name="twitter:image" content="https://aeonholdings.co/og-image.png" />
+
+  <!-- Favicon: inline SVG monogram, no external files needed -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316283a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23c9a769' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+
+  <!-- Structured data: helps search engines describe the company accurately -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aeon Holdings",
+    "url": "https://aeonholdings.co/",
+    "email": "evan@aeonholdings.co",
+    "description": "A private acquisition company. Aeon Holdings acquires and personally operates one established small business for the long term.",
+    "founder": { "@type": "Person", "name": "Evan Melioris" }
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — colors and type live here for easy tweaking
+       ============================================================ */
+    :root {
+      --navy:        #16283a;  /* deep slate-navy: headings, dark sections */
+      --navy-soft:   #24384c;
+      --ink:         #29323b;  /* body text */
+      --ink-muted:   #5b6670;  /* secondary text */
+      --paper:       #f7f3ea;  /* warm neutral background */
+      --paper-2:     #fbf9f3;  /* card / raised surface */
+      --line:        #e4ddce;  /* hairline borders */
+      --accent:      #b08a4f;  /* muted brass — used sparingly */
+      --accent-deep: #8f6f3c;
+
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+      --sans:  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      --maxw: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3 { font-family: var(--serif); font-weight: 600; color: var(--navy); line-height: 1.2; letter-spacing: 0.2px; }
+
+    a { color: var(--accent-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--navy); }
+
+    p { margin: 0 0 1.1em; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    /* Accessibility: skip link + visible focus */
+    .skip {
+      position: absolute; left: -999px; top: 0;
+      background: var(--navy); color: #fff; padding: 10px 16px; z-index: 100; border-radius: 0 0 6px 0;
+    }
+    .skip:focus { left: 0; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* Section rhythm */
+    section { padding: 92px 0; }
+    .section-label {
+      font-family: var(--sans);
+      font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent-deep); margin: 0 0 18px; font-weight: 600;
+    }
+    h2 { font-size: clamp(1.6rem, 3.2vw, 2.25rem); margin: 0 0 28px; }
+    .lead { font-size: 1.06rem; max-width: 62ch; color: var(--ink); }
+
+    /* ---------------- Header ---------------- */
+    header.site {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(247, 243, 234, 0.86);
+      backdrop-filter: saturate(140%) blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .brand { font-family: var(--serif); font-size: 1.28rem; color: var(--navy); text-decoration: none; letter-spacing: 0.3px; }
+    .brand .dot { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 0.95rem; color: var(--ink-muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta {
+      border: 1px solid var(--navy); color: var(--navy); padding: 8px 16px; border-radius: 999px;
+      font-size: 0.9rem; text-decoration: none; transition: background .18s, color .18s;
+    }
+    .nav-cta:hover { background: var(--navy); color: #fff; }
+    @media (max-width: 680px) { .nav-links a.hide-sm { display: none; } }
+
+    /* ---------------- Hero ---------------- */
+    .hero { padding: clamp(70px, 12vw, 132px) 0 clamp(64px, 9vw, 108px); }
+    .hero .eyebrow {
+      font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-deep); font-weight: 600; margin: 0 0 22px;
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 5.4vw, 3.5rem);
+      max-width: 18ch; margin: 0 0 26px;
+    }
+    .hero .support { font-size: 1.14rem; max-width: 56ch; color: var(--ink); margin: 0 0 36px; }
+    .btn {
+      display: inline-block; background: var(--navy); color: #fff; text-decoration: none;
+      padding: 14px 26px; border-radius: 999px; font-size: 1rem; letter-spacing: .2px;
+      transition: background .18s, transform .18s;
+    }
+    .btn:hover { background: var(--navy-soft); color: #fff; transform: translateY(-1px); }
+    .btn.secondary { background: transparent; color: var(--navy); border: 1px solid var(--navy); }
+    .btn.secondary:hover { background: var(--navy); color: #fff; }
+    .hero-rule { width: 64px; height: 2px; background: var(--accent); margin: 0 0 30px; border: 0; }
+
+    /* ---------------- About ---------------- */
+    .about-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 56px; align-items: start; }
+    .portrait {
+      aspect-ratio: 4 / 5; width: 100%; border-radius: 10px;
+      background:
+        radial-gradient(120% 90% at 30% 15%, #26384a 0%, #16283a 60%, #101d2b 100%);
+      border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      color: #cdb488; font-family: var(--serif);
+      position: relative; overflow: hidden;
+    }
+    .portrait .mono { font-size: 3.2rem; opacity: .9; }
+    .portrait .cap {
+      position: absolute; bottom: 14px; left: 0; right: 0; text-align: center;
+      font-family: var(--sans); font-size: 0.72rem; letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+    .about p:last-child { margin-bottom: 0; }
+    .credentials { list-style: none; padding: 0; margin: 22px 0 0; }
+    .credentials li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 0.98rem; color: var(--ink); }
+    .credentials li:first-child { border-top: 0; }
+    .credentials strong { color: var(--navy); font-weight: 600; }
+
+    /* ---------------- What Aeon looks for ---------------- */
+    .looks { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .traits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 8px; }
+    .trait {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 26px 24px;
+    }
+    .trait h3 { font-size: 1.16rem; margin: 0 0 10px; }
+    .trait p { margin: 0; font-size: 0.98rem; color: var(--ink-muted); line-height: 1.6; }
+    .trait .mk { color: var(--accent); font-size: 1.15rem; line-height: 1; margin: 0 0 14px; display: block; }
+    .looks .note { margin-top: 34px; font-size: 1.02rem; color: var(--ink); max-width: 66ch; }
+
+    /* ---------------- Approach ---------------- */
+    .approach-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 56px; margin-top: 10px; }
+    .point { border-top: 2px solid var(--accent); padding-top: 18px; }
+    .point h3 { font-size: 1.18rem; margin: 0 0 10px; }
+    .point p { margin: 0; color: var(--ink-muted); font-size: 1rem; }
+
+    /* ---------------- Contact ---------------- */
+    .contact { background: var(--navy); color: #e9edf1; }
+    .contact h2 { color: #fff; }
+    .contact .section-label { color: #cdb488; }
+    .contact .lead { color: #c7d0d8; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .email-block { margin: 26px 0 10px; }
+    .email-lg {
+      font-family: var(--serif); font-size: clamp(1.3rem, 3vw, 1.9rem);
+      color: #fff; text-decoration: none; border-bottom: 1px solid rgba(205,180,136,.5); padding-bottom: 3px;
+    }
+    .email-lg:hover { color: #fff; border-color: #cdb488; }
+    .confidential { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; color: #aeb9c3; margin-top: 22px; }
+    .confidential svg { flex: none; }
+
+    form { display: grid; gap: 14px; }
+    .field label { display: block; font-size: 0.82rem; letter-spacing: .04em; color: #b7c1cb; margin-bottom: 6px; }
+    .field input, .field textarea {
+      width: 100%; font-family: var(--sans); font-size: 1rem; color: #fff;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18);
+      border-radius: 8px; padding: 12px 14px;
+    }
+    .field textarea { resize: vertical; min-height: 120px; }
+    .field input::placeholder, .field textarea::placeholder { color: #8b96a1; }
+    form .btn { background: var(--accent); color: #16283a; font-weight: 600; justify-self: start; margin-top: 4px; }
+    form .btn:hover { background: #c9a769; color: #16283a; }
+    .form-hint { font-size: 0.82rem; color: #93a0ab; margin: 2px 0 0; }
+
+    /* ---------------- Footer ---------------- */
+    footer.site { background: #101d2b; color: #9aa7b2; padding: 46px 0; }
+    .foot { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; justify-content: space-between; }
+    .foot .fbrand { font-family: var(--serif); color: #e9edf1; font-size: 1.1rem; }
+    .foot a { color: #cdb488; text-decoration: none; }
+    .foot a:hover { color: #fff; text-decoration: underline; }
+    .foot .fine { flex-basis: 100%; font-size: 0.82rem; color: #6f7d89; border-top: 1px solid rgba(255,255,255,.08); padding-top: 18px; margin-top: 6px; }
+
+    /* ---------------- Reveal on scroll (subtle, respects reduced motion) ---------------- */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    /* ---------------- Responsive ---------------- */
+    @media (max-width: 860px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .portrait { max-width: 320px; }
+      .traits { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; gap: 30px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      section { padding: 72px 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contact">Skip to contact</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site">
+    <div class="wrap nav">
+      <a class="brand" href="#top">Aeon Holdings</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="hide-sm" href="#about">About</a>
+        <a class="hide-sm" href="#criteria">What we look for</a>
+        <a class="hide-sm" href="#approach">Approach</a>
+        <a class="nav-cta" href="#contact">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" aria-labelledby="hero-h">
+      <div class="wrap">
+        <p class="eyebrow reveal">A private acquisition company</p>
+        <h1 id="hero-h" class="reveal">Acquiring and operating one exceptional business for the long term.</h1>
+        <hr class="hero-rule reveal" />
+        <p class="support reveal">Aeon Holdings is the vehicle through which Evan Melioris intends to buy a single, well-run company and personally run it for many years — not to resell it. A patient, permanent home for a business and the people who built it.</p>
+        <p class="reveal"><a class="btn" href="#contact">Start a confidential conversation</a></p>
+      </div>
+    </section>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section id="about" aria-labelledby="about-h">
+      <div class="wrap about-grid">
+        <div class="about reveal">
+          <p class="section-label">About Evan</p>
+          <h2 id="about-h">An operator looking for one company to call home.</h2>
+          <p>Evan Melioris spent his career in operations, strategy, and applied AI and cloud technology at Accenture and Deloitte, working closely with organizations across healthcare and insurance. He holds an MBA in Finance from Emory University's Goizueta Business School.</p>
+          <p>He is now setting out to do one thing: acquire a single established business and operate it himself for the long haul. The goal is not a quick turnaround or a resale, but to be a hands-on owner who brings operational rigor and modern technology to a company that already has a strong foundation — while protecting what makes it work today.</p>
+          <p>Aeon Holdings is early by design. It is one person at the start of a focused, patient search, offering an owner something rare: a buyer who plans to stay.</p>
+          <ul class="credentials">
+            <li><strong>Background</strong> — Operations, strategy &amp; applied technology at Accenture and Deloitte</li>
+            <li><strong>Focus areas</strong> — Deep experience in healthcare and insurance</li>
+            <li><strong>Education</strong> — MBA, Finance — Emory University, Goizueta Business School</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <!-- Replace this placeholder with a photo:
+               <img class="portrait" src="evan.jpg" alt="Evan Melioris" style="object-fit:cover;" /> -->
+          <div class="portrait" role="img" aria-label="Portrait placeholder for Evan Melioris">
+            <span class="mono">EM</span>
+            <span class="cap">Evan Melioris · Founder</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WHAT AEON LOOKS FOR ==================== -->
+    <section id="criteria" class="looks" aria-labelledby="criteria-h">
+      <div class="wrap">
+        <p class="section-label reveal">What Aeon looks for</p>
+        <h2 id="criteria-h" class="reveal">The kind of business worth stewarding for decades.</h2>
+        <p class="lead reveal">There is no single industry and no rigid checklist. Aeon is drawn to solid, lasting companies — the sort an owner has spent years building carefully. A few traits tend to matter most.</p>
+        <div class="traits">
+          <div class="trait reveal">
+            <span class="mk">◆</span>
+            <h3>Established &amp; profitable</h3>
+            <p>A durable company with a real history of steady earnings, not a turnaround or an experiment.</p>
+          </div>
+          <div class="trait reveal">
+            <span class="mk">◆</span>
+            <h3>Durable, recurring revenue</h3>
+            <p>Often B2B services or operations-driven work, with loyal customers and revenue that holds up over time.</p>
+          </div>
+          <div class="trait reveal">
+            <span class="mk">◆</span>
+            <h3>A committed team</h3>
+            <p>Capable people who know the business well and would thrive with continuity and support.</p>
+          </div>
+          <div class="trait reveal">
+            <span class="mk">◆</span>
+            <h3>A well-run foundation</h3>
+            <p>Sound day-to-day operations and a good reputation with the customers and community it serves.</p>
+          </div>
+          <div class="trait reveal">
+            <span class="mk">◆</span>
+            <h3>An owner planning a transition</h3>
+            <p>A founder thinking about retirement or succession who cares where the company goes next.</p>
+          </div>
+          <div class="trait reveal">
+            <span class="mk">◆</span>
+            <h3>Room to keep improving</h3>
+            <p>A strong base where thoughtful operations and modern tools can help the next chapter, without disruption.</p>
+          </div>
+        </div>
+        <p class="note reveal">If you have spent years building something solid, this may well be about your company — wherever it sits, and whatever it does.</p>
+      </div>
+    </section>
+
+    <!-- ============================ APPROACH ============================ -->
+    <section id="approach" aria-labelledby="approach-h">
+      <div class="wrap">
+        <p class="section-label reveal">Our approach</p>
+        <h2 id="approach-h" class="reveal">Why an owner might choose Aeon.</h2>
+        <p class="lead reveal">Selling the company you built is a personal decision as much as a financial one. Aeon is designed around that reality.</p>
+        <div class="approach-grid">
+          <div class="point reveal">
+            <h3>Ownership, not a resale</h3>
+            <p>The intent is to buy and hold for many years and operate the business directly — not to flip it, strip it, or pass it along to the next buyer.</p>
+          </div>
+          <div class="point reveal">
+            <h3>Respect for your people &amp; reputation</h3>
+            <p>The team, the customers, and the name you built are the value. Preserving that legacy and continuity comes first.</p>
+          </div>
+          <div class="point reveal">
+            <h3>Confidential &amp; straightforward</h3>
+            <p>Every conversation is private and low-pressure. The process is honest and clear, moving at a pace that respects you and your business.</p>
+          </div>
+          <div class="point reveal">
+            <h3>Hands-on involvement</h3>
+            <p>Aeon means an owner who shows up and runs the business — bringing operational discipline and modern technology to a strong foundation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section id="contact" class="contact" aria-labelledby="contact-h">
+      <div class="wrap contact-grid">
+        <div class="reveal">
+          <p class="section-label">Get in touch</p>
+          <h2 id="contact-h">Let's have a quiet, confidential conversation.</h2>
+          <p class="lead">Whether you are ready to explore a sale, thinking about it for down the road, or a broker with a business that fits — Evan would welcome hearing from you. No obligation, and nothing shared.</p>
+          <div class="email-block">
+            <a class="email-lg" href="mailto:evan@aeonholdings.co">evan@aeonholdings.co</a>
+          </div>
+          <p class="confidential">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cdb488" stroke-width="1.7" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            Every conversation is treated as strictly confidential.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <!-- This form composes an email in the visitor's own mail app — no server or
+               third-party service required, so it works on any static host. -->
+          <form id="contact-form" novalidate>
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+            </div>
+            <div class="field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" placeholder="A little about your business, or anything you'd like to ask."></textarea>
+            </div>
+            <button class="btn" type="submit">Send a confidential note</button>
+            <p class="form-hint">This opens a pre-filled message in your email app to evan@aeonholdings.co.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site">
+    <div class="wrap foot">
+      <span class="fbrand">Aeon Holdings</span>
+      <a href="mailto:evan@aeonholdings.co">evan@aeonholdings.co</a>
+      <p class="fine">Aeon Holdings is a private acquisition company. &copy; <span id="year">2026</span> Aeon Holdings. All conversations held in confidence.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact form -> compose a mailto (works with no backend on any static host)
+    var form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = (document.getElementById('cf-name').value || '').trim();
+        var email = (document.getElementById('cf-email').value || '').trim();
+        var msg = (document.getElementById('cf-message').value || '').trim();
+        var subject = 'Confidential inquiry — Aeon Holdings';
+        var lines = [];
+        if (msg) lines.push(msg, '');
+        if (name) lines.push('— ' + name);
+        if (email) lines.push(email);
+        var body = lines.join('\n');
+        window.location.href = 'mailto:evan@aeonholdings.co'
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body=' + encodeURIComponent(body);
+      });
+    }
+
+    // Subtle reveal-on-scroll (skipped automatically for reduced-motion users)
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    }
+  </script>
+</body>
+</html>
